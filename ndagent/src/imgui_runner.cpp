@@ -157,7 +157,7 @@ GLFWmonitor *GetMonitorByNumber(int monitor) {
 void ImGuiRunner::FullScreenWindowed(char const *title, int monitor) {
   window_title_ = title;
   windowed_ = true;
-  full_screen_ = true;
+  full_screen_ = false;
 
   GLFWmonitor *the_monitor = GetMonitorByNumber(monitor);
   const GLFWvidmode *mode = glfwGetVideoMode(the_monitor);
@@ -165,7 +165,7 @@ void ImGuiRunner::FullScreenWindowed(char const *title, int monitor) {
     ASLOG(debug,
           "  starting in 'Full Screen Windowed' mode: w={}, h={}, r={}, "
           "t='{}', m={}",
-          mode->width, mode->height, mode->refreshRate, title, monitor);
+          mode->width/2, mode->height/2, mode->refreshRate, title, monitor);
     glfwWindowHint(GLFW_RED_BITS, mode->redBits);
     glfwWindowHint(GLFW_GREEN_BITS, mode->greenBits);
     glfwWindowHint(GLFW_BLUE_BITS, mode->blueBits);

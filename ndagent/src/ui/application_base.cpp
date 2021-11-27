@@ -58,6 +58,7 @@ void ApplicationBase::ShutDown() {
 }
 
 bool ApplicationBase::Draw() {
+  ImGui::Begin("DHT P2p", nullptr);
 	auto menu_height = DrawMainMenu();
 	auto pos = ImVec2(0, menu_height);
     auto size = ImGui::GetIO().DisplaySize;
@@ -74,6 +75,7 @@ bool ApplicationBase::Draw() {
 
   // Return true to indicate that we are not doing any calculation and we can
   // sleep if the application window is not focused.
+  ImGui::End();
   return true;
 }
 
